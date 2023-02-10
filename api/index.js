@@ -17,11 +17,27 @@ async function connect() {
 	console.log('Connected to mongoDB')
 }
 
+// if there is an error once connected to the db
+mongoose.connection.on('disconnected', () => {
+	console.log('mongoDB disconnected!')
+})
+mongoose.connection.on('connected', () => {
+	console.log('mongoDB connected!')
+})
+
+// middlewares
+app.use(express.json())
+
 app.use('/api/auth', authRoute)
 app.use('/api/users', usersRoute)
 app.use('/api/hotels', hotelsRoute)
 app.use('/api/rooms', roomsRoute)
 
+app.use((req,res,next) => {
+	console.log('hi i am a middleware')
+})
+
 app.listen(8800, () => {
+	connect()
 	console.log('Connected to backed!')
 })
