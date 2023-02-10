@@ -8,7 +8,7 @@ const router = express.Router()
 router.post('/', createHotel)
 router.put('/:id', updateHotel)
 router.get('/', getAllHotels)
-router.get(':id', getHotel)
+router.get('/:id', getHotel)
 router.delete('/:id', deleteHotel)
 
 export default router
