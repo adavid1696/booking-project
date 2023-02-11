@@ -1,6 +1,7 @@
 import bcrypt from 'bcryptjs'
 import User from "../models/User.js"
 import { createError } from '../utils/error.js';
+import jwt from 'jsonwebtoken'
 
 export const register = async (req, res, next) => {
 	const {username, email, password} = req.body;
@@ -35,7 +36,14 @@ export const login = async (req, res, next) => {
 
 		const {isAdmin, password, ...otherDetails} = user._doc;
 
-		res.status(200).json({otherDetails})
+		const token = jwt.sign({id: user._id, isAdmin: user.isAdmin}, process.env.JWT)
+
+		res
+		.cookie("token", token, {
+			httpOnly: true,
+		})
+		.status(200)
+		.json({details: {otherDetails}, isAdmin})
 
 	} catch (e) {
 			return next(e)

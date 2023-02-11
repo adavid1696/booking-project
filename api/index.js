@@ -1,6 +1,7 @@
 import express from 'express'
 import dotenv from 'dotenv'
 import mongoose from 'mongoose'
+import cookieParser from 'cookie-parser'
 
 // Routes
 import authRoute from './routes/authRoute.js'
@@ -26,6 +27,7 @@ mongoose.connection.on('connected', () => {
 })
 
 // middlewares
+app.use(cookieParser())
 app.use(express.json())
 
 app.use('/api/auth', authRoute)
