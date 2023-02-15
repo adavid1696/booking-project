@@ -94,8 +94,8 @@ function Header() {
           </div>
           <div className="headerSearchItem">
             <FontAwesomeIcon icon={faPerson} className="headerIcon" />
-            <span className='headerSearchText'>{`${options.adult} Adults · ${options.children} Children · ${options.room} Room`}</span>
-            <div className="options">
+            <span onClick={() => setOpenOptions(prev => !prev)} className='headerSearchText'>{`${options.adult} Adults · ${options.children} Children · ${options.room} Room`}</span>
+            {openOptions && <div className="options">
               <div className="optionItem">
                 <span className="optionText">Adult</span>
                 <div className="optionCounter">
@@ -135,7 +135,7 @@ function Header() {
                   <button onClick={() => handleOption('room', '+')} className="optionCounterButton">+</button>
                 </div>
               </div>
-            </div>
+            </div>}
           </div>
           <div className="headerSearchItem">
             <button className="headerBtn">Search</button>
