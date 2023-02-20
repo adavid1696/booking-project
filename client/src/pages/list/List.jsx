@@ -45,52 +45,55 @@ function List() {
 						</div>
 						<div className="lsItem">
 							<label htmlFor="">Options</label>
-							<div className="lsOptionItem">
-								<span className="lsOptionText">
-									Min price <small>per night</small>
-								</span>
-								<input type="number" className='lsOptionInput' />
-							</div>
-							<div className="lsOptionItem">
-								<span className="lsOptionText">
-									Max price <small>per night</small>
-								</span>
-								<input type="number" className='lsOptionInput' />
-							</div>
-							<div className="lsOptionItem">
-								<span className="lsOptionText">
-									Adult 
-								</span>
-								<input 
-									type="number" 
-									className='lsOptionInput' 
-									placeholder={options.adult}
-									min={1}
-								/>
-							</div>
-							<div className="lsOptionItem">
-								<span className="lsOptionText">
-									Children 
-								</span>
-								<input 
-									type="number" 
-									className='lsOptionInput'
-									placeholder={options.children} 
-									min={0}
-								/>
-							</div>
-							<div className="lsOptionItem">
-								<span className="lsOptionText">
-									Room
-								</span>
-								<input 
-									type="number" 
-									className='lsOptionInput' 
-									placeholder={options.room}
-									min={1}
-								/>
+							<div className="lsOptions">
+								<div className="lsOptionItem">
+									<span className="lsOptionText">
+										Min price <small>per night</small>
+									</span>
+									<input type="number" className='lsOptionInput' />
+								</div>
+								<div className="lsOptionItem">
+									<span className="lsOptionText">
+										Max price <small>per night</small>
+									</span>
+									<input type="number" className='lsOptionInput' />
+								</div>
+								<div className="lsOptionItem">
+									<span className="lsOptionText">
+										Adult 
+									</span>
+									<input 
+										type="number" 
+										className='lsOptionInput' 
+										placeholder={options.adult}
+										min={1}
+									/>
+								</div>
+								<div className="lsOptionItem">
+									<span className="lsOptionText">
+										Children 
+									</span>
+									<input 
+										type="number" 
+										className='lsOptionInput'
+										placeholder={options.children} 
+										min={0}
+									/>
+								</div>
+								<div className="lsOptionItem">
+									<span className="lsOptionText">
+										Room
+									</span>
+									<input 
+										type="number" 
+										className='lsOptionInput' 
+										placeholder={options.room}
+										min={1}
+									/>
+								</div>
 							</div>
 						</div>
+						<button>Search</button>
 					</div>
 					<div className="listResult"></div>
 				</div>
